@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestAll">
+
+   <!-- <listeners>
+        <listener class-name="TestCase.RetryListner"/>
+    </listeners>-->
+
+    <test name="order">
+        <groups>
+            <run>
+                <include name="MyAccount1" />
+            </run>
+        </groups>
+        <classes>
+            <class name="TestCase.OpencartApplication" />
+        </classes>
+
+    </test>
+    <!--<test name="database">-->
+        <!--<classes>-->
+            <!--<class name="" />-->
+            <!--<class name="" />-->
+        <!--</classes>-->
+    <!--</test>-->
+
+</suite>
