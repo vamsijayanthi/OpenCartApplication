@@ -8,7 +8,6 @@ import Pages.ItemSelectionPage;
 import Pages.LoginPage;
 import Pages.MyAccount;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -27,7 +26,7 @@ public class OpencartApplication extends BaseClass  {
         driver.get("http://192.168.2.151/opencart/index.php?");
     }
 
-    @Test(retryAnalyzer = RetryFailedTestCases.class)
+    @Test
     public void test001_verifyHomePage() throws Exception {
         MyAccount myAccount = new MyAccount(driver);
         LoginPage loginPage = new LoginPage(driver);
@@ -39,7 +38,7 @@ public class OpencartApplication extends BaseClass  {
 
     }
 
-    @Test(retryAnalyzer = RetryFailedTestCases.class)
+    @Test
     public void test002_verifyItemavailability() {
         ItemSelectionPage itemSelectionPage  = new ItemSelectionPage(driver);
         itemSelectionPage.searchItem("macbook");
@@ -49,13 +48,13 @@ public class OpencartApplication extends BaseClass  {
     @Test(retryAnalyzer = RetryFailedTestCases.class)
     public void test003_chekout() {
         ChekoutPage chekoutPage = new ChekoutPage(driver);
-        System.out.println("Failed Scenario");
-        Assert.assertTrue(false);
-        //chekoutPage.verifyItems();
-//        chekoutPage.clickOnCart();
-//        chekoutPage.chekout();
-//        chekoutPage.clickOnMyAccount();
-//        chekoutPage.clickOnCart();
+       /* System.out.println("Failed Scenario");
+        Assert.assertTrue(false);*/
+        chekoutPage.verifyItems();
+        chekoutPage.clickOnCart();
+        chekoutPage.chekout();
+        chekoutPage.clickOnMyAccount();
+        chekoutPage.LogOut();
     }
 
 }
